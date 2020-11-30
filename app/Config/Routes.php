@@ -32,8 +32,18 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
 
+$routes->get('/', 'Home::index');
+$routes->get('/customer', 'CustomerController::index');
+$routes->get('/customer/index', 'CustomerController::index');
+$routes->get('/customer/form', 'CustomerController::index');
+$routes->get('/customer/edit/(:num)', 'CustomerController::index');
+$routes->get('/api/customer/test', 'CustomerController::test');
+$routes->post('/api/customer/create','CustomerController::create');
+$routes->get('/api/customer/list','CustomerController::list');
+$routes->get('/api/customer/get/(:num)','CustomerController::get/$1');
+$routes->put('/api/customer/update/(:num)','CustomerController::update/$1');
+$routes->delete('api/customer/delete/(:num)','CustomerController::delete/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
